@@ -23,6 +23,7 @@
     cursor: pointer;
     background-color: var(--color-ribbon);
     border: 0;
+    transition: transform 0.1s ease-out;
 }
 
 .book__ribbon:after {
@@ -34,7 +35,11 @@
     height: 12px;
     content: "";
     background-color: var(--color-brown);
-    rotate: 45deg;
+    transform: rotate(45deg);
+}
+
+.book__ribbon:active {
+    transform: scaleY(1.15);
 }
 
 .cover {
