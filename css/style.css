@@ -17,7 +17,24 @@
 .book__ribbon {
     position: absolute;
     top: 0;
-    right: 20px;
+    left: 30px;
+    width: 12px;
+    height: 100px;
+    cursor: pointer;
+    background-color: var(--color-ribbon);
+    border: 0;
+}
+
+.book__ribbon:after {
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    display: block;
+    width: 12px;
+    height: 12px;
+    content: "";
+    background-color: var(--color-brown);
+    rotate: 45deg;
 }
 
 .cover {
