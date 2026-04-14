@@ -1,0 +1,56 @@
+:root {
+    --color-brown: #3d1a1a;
+    --color-cream: #f4e4bc;
+    --color-dark-brown: #2a1111;
+    --color-gold: #e5c07b;
+    --color-spine: #1e0d0d;
+    --color-ribbon: #8b1a1a;
+}
+
+.book {
+    position: relative;
+    padding: 0;
+    background-color: var(--color-brown);
+    border: 0;
+}
+
+.book__ribbon {
+    position: absolute;
+    top: 0;
+    right: 20px;
+}
+
+.cover {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-width: 300px;
+    min-height: 460px;
+    padding: 3.6rem 2.8rem 2.8rem;
+    border-left: 2.5rem solid var(--color-spine);
+}
+
+.cover__input {
+    color: var(--color-gold);
+    text-align: center;
+    background-color: transparent;
+    border: 0;
+}
+
+.cover__input:focus {
+    outline: 0;
+}
+
+.cover__header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid color-mix(in srgb, var(--color-gold) 20%, transparent);
+}
+
+.cover__title {
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: 0.05rem;
+}
