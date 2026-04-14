@@ -15,27 +15,26 @@
 }
 
 .book__ribbon {
+    --f: 0.1em;
+    --r: 0.8em;
     position: absolute;
     top: 0;
     left: 30px;
-    width: 12px;
+    width: 15px;
     height: 100px;
     cursor: pointer;
     background-color: var(--color-ribbon);
     border: 0;
+    clip-path: polygon(
+        var(--f) 0,
+        100% 0,
+        100% calc(100% - var(--r)),
+        calc(50% + var(--f) / 2) 100%,
+        var(--f) calc(100% - var(--r)),
+        var(--f) var(--f),
+        0 var(--f)
+    );
     transition: transform 0.1s ease-out;
-}
-
-.book__ribbon:after {
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    display: block;
-    width: 12px;
-    height: 12px;
-    content: "";
-    background-color: var(--color-brown);
-    transform: rotate(45deg);
 }
 
 .book__ribbon:active {
