@@ -55,8 +55,50 @@
     letter-spacing: 0.05rem;
 }
 
+.cover__author {
+    font-style: italic;
+    color: color-mix(in srgb, var(--color-gold) 80%, transparent);
+}
+
 .cover__body {
     font-size: 2.5rem;
     color: color-mix(in srgb, var(--color-gold) 50%, transparent);
     text-align: center;
+    user-select: none;
+}
+
+.cover__footer {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    padding-top: 2.5rem;
+    color: var(--color-gold);
+    border-top: 1px solid color-mix(in srgb, var(--color-gold) 20%, transparent);
+}
+
+.cover__stamp {
+    display: flex;
+    flex-direction: column;
+}
+
+.cover__label {
+    font-size: 1.4rem;
+    font-style: italic;
+    color: color-mix(in srgb, var(--color-gold) 80%, transparent);
+}
+
+.cover__unit {
+    width: 5rem;
+    text-align: right;
+    border-bottom: 1px solid color-mix(in srgb, var(--color-gold) 20%, transparent);
+}
+
+/* Hide up/down arrow */
+.cover__unit::-webkit-outer-spin-button,
+.cover__unit::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.cover__unit[type="number"] {
+    -moz-appearance: textfield;
 }

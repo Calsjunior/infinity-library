@@ -43,15 +43,19 @@
 
                 <div class="cover__body"><span class="cover__ornament">❧</span></div>
 
-                <footer>
+                <footer class="cover__footer">
                     <div class="cover__stamp">
-                        <input class="cover__status" type="checkbox" id="book-status">
-                        <label for="book-status">Unread</label>
+                        <input
+                            class="cover__input cover__status"
+                            type="checkbox"
+                            id="book-status"
+                        >
+                        <label class="cover__label" for="book-status">Unread</label>
                     </div>
 
-                    <div class="cover__unit">
-                        <input class="cover__number" type="number">
-                        <span>pp.</span>
+                    <div class="cover__pages">
+                        <input class="cover__input cover__unit" type="number">
+                        <span class="cover__label">pp.</span>
                     </div>
                 </footer>
             </form>
