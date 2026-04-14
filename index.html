@@ -4,12 +4,59 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="A brief description of the page for SEO">
-        <title>Document Title</title>
+        <title>Infinity Library</title>
 
         <link rel="stylesheet" href="css/reset.css">
         <link rel="stylesheet" href="css/style.css">
 
         <script src="js/main.js" defer></script>
     </head>
-    <body></body>
+    <body>
+        <div class="bookshelf"></div>
+        <button type="button" command="show-modal" commandfor="add-book-dialog">
+            New book
+        </button>
+
+        <dialog class="dialog" id="add-book-dialog">
+            <div class="book">
+                <button class="book__ribbon" type="button"></button>
+
+                <form class="book__cover cover" method="dialog" id="add-book-form">
+                    <header class="cover__header">
+                        <input
+                            class="cover__title"
+                            type="text"
+                            name="book-title"
+                            id="book-title"
+                            placeholder="TITLE"
+                            required
+                        >
+
+                        <input
+                            class="cover__author"
+                            type="text"
+                            name="book-author"
+                            id="book-author"
+                            placeholder="by Unknown Author"
+                            required
+                        >
+                    </header>
+
+                    <div class="cover__body"><span class="cover__ornament">❧</span></div>
+
+                    <footer>
+                        <div class="cover__stamp">
+                            <input class="cover__status" type="checkbox" id="book-status">
+                            <label for="book-status">Unread</label>
+                        </div>
+
+                        <div class="cover__unit">
+                            <input class="cover__number" type="number">
+                            <span>pp.</span>
+                        </div>
+                    </footer>
+                </form>
+            </div>
+        </dialog>
+    </body>
 </html>
