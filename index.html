@@ -50,11 +50,21 @@
                             type="checkbox"
                             id="book-status"
                         >
-                        <label class="cover__label" for="book-status">Unread</label>
+                        <label class="seal" for="book-status">
+                            <span class="seal__embossed"></span>
+                            <span class="cover__label seal__label"></span>
+                        </label>
                     </div>
 
                     <div class="cover__pages">
-                        <input class="cover__input cover__unit" type="number">
+                        <input
+                            class="cover__input cover__unit"
+                            type="number"
+                            name="book-pages"
+                            id="book-pages"
+                            placeholder="000"
+                            required
+                        >
                         <span class="cover__label">pp.</span>
                     </div>
                 </footer>
