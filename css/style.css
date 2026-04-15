@@ -99,6 +99,7 @@
 }
 
 .cover__stamp {
+    position: relative;
     display: flex;
     flex-direction: column;
 }
@@ -110,6 +111,17 @@
     height: 0;
     pointer-events: none;
     opacity: 0;
+}
+
+/* Custom wax seal checkbox */
+.seal {
+    position: relative;
+    width: 5.5rem;
+    height: 5.5rem;
+    cursor: pointer;
+    border: 3px dashed var(--color-ribbon);
+    border-radius: 2.2rem 1.9rem 2.3rem 2rem;
+    transition: all 0.3s ease;
 }
 
 .cover__label {
