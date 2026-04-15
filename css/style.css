@@ -22,8 +22,6 @@ body {
 }
 
 .book__ribbon {
-    --f: 0.1em;
-    --r: 0.8em;
     position: absolute;
     top: 0;
     left: 30px;
@@ -32,15 +30,7 @@ body {
     cursor: pointer;
     background-color: var(--color-ribbon);
     border: 0;
-    clip-path: polygon(
-        var(--f) 0,
-        100% 0,
-        100% calc(100% - var(--r)),
-        calc(50% + var(--f) / 2) 100%,
-        var(--f) calc(100% - var(--r)),
-        var(--f) var(--f),
-        0 var(--f)
-    );
+    clip-path: polygon(95% 0%, 95% 85%, 50% 95%, 5% 85%, 5% 0%);
     transition: transform 0.1s ease-out;
 }
 
