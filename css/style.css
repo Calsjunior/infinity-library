@@ -161,3 +161,11 @@ body {
 .cover__unit[type="number"] {
     -moz-appearance: textfield;
 }
+
+.cover__input,
+.cover__ornament,
+.cover__label {
+    text-shadow:
+        -1px -1px rgba(0, 0, 0, 0.8),
+        1px 1px color-mix(in srgb, var(--color-gold) 20%, transparent);
+}
