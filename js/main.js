@@ -21,7 +21,8 @@ function addBookToLibrary(book) {
 }
 
 function removeBookFromLibrary(book) {
-    myLibrary.splice(book, 1);
+    const index = myLibrary.indexOf(book);
+    myLibrary.splice(index, 1);
 }
 
 function getBookFromInput() {
@@ -70,7 +71,7 @@ const bookshelf = document.querySelector(".bookshelf");
 bookshelf.addEventListener("click", (event) => {
     const targetBook = myLibrary.find((book) => book.id === event.target.dataset.id);
     if (event.target.classList.contains("book__button--remove")) {
-        removeBookFromLibrary(targetBook.id);
+        removeBookFromLibrary(targetBook);
     } else if (event.target.classList.contains("book__button--read")) {
         targetBook.toggleReadStatus();
     }
