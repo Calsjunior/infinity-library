@@ -19,6 +19,7 @@ body {
     padding: 0;
     background-color: var(--color-brown);
     border: 0;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
 }
 
 .ribbon {
