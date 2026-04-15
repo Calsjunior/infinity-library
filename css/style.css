@@ -21,12 +21,18 @@ body {
     border: 0;
 }
 
-.book__ribbon {
+.ribbon {
     position: absolute;
     top: 0;
     left: 30px;
     width: 15px;
     height: 100px;
+    filter: drop-shadow(2px 2px 6px rgba(0, 0, 0, 0.6));
+}
+
+.ribbon__button {
+    width: 100%;
+    height: 100%;
     cursor: pointer;
     background-color: var(--color-ribbon);
     border: 0;
@@ -34,7 +40,7 @@ body {
     transition: transform 0.1s ease-out;
 }
 
-.book__ribbon:active {
+.ribbon__button:active {
     transform: scaleY(1.15);
 }
 
