@@ -59,6 +59,9 @@ body {
     min-height: 460px;
     padding: 3.6rem 2.8rem 2.8rem;
     border-left: 2.5rem solid var(--color-spine);
+    box-shadow:
+        inset 10px 0 10px -5px rgba(0, 0, 0, 0.3),
+        inset 4px 0 10px -5px rgba(255, 255, 255, 0.2);
 }
 
 .cover__input {
