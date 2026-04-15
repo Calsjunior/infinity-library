@@ -5,6 +5,13 @@
     --color-gold: #e5c07b;
     --color-spine: #1e0d0d;
     --color-ribbon: #8b1a1a;
+
+    --font-display: "Cinzel", serif;
+    --font-body: "IM Fell English", serif;
+}
+
+body {
+    font-family: var(--font-body);
 }
 
 .book {
@@ -71,12 +78,14 @@
 }
 
 .cover__title {
+    font-family: var(--font-display);
     font-size: 2rem;
     font-weight: 600;
     letter-spacing: 0.05rem;
 }
 
 .cover__author {
+    font-size: 1.8rem;
     font-style: italic;
     color: color-mix(in srgb, var(--color-gold) 80%, transparent);
 }
