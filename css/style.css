@@ -22,9 +22,9 @@ body {
     border: 0;
     border-radius: 2px 1.2rem 1.2rem 2px;
     box-shadow:
-        3px 3px var(--color-brown),
+        3px 3px var(--color-dark-brown),
         10px 10px 10px rgba(0, 0, 0, 0.3),
-        0px 2px 0 var(--color-brown);
+        0px 2px 0 var(--color-dark-brown);
 
     transform: rotate(-1deg);
 }
