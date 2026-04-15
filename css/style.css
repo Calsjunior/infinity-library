@@ -23,7 +23,8 @@ body {
     border-radius: 2px 1.2rem 1.2rem 2px;
     box-shadow:
         3px 3px var(--color-brown),
-        10px 10px 10px rgba(0, 0, 0, 0.3);
+        10px 10px 10px rgba(0, 0, 0, 0.3),
+        0px 2px 0 var(--color-brown);
 
     transform: rotate(-1deg);
 }
