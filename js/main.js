@@ -1,4 +1,5 @@
 const myLibrary = [];
+let currentEditingId = null;
 
 function Book(title, author, pages, read) {
     if (!new.target) {
@@ -12,10 +13,6 @@ function Book(title, author, pages, read) {
     this.read = read;
 }
 
-Book.prototype.toggleReadStatus = function () {
-    this.read = !this.read;
-};
-
 addBookToLibrary(new Book("Harry", "J.K.", 129, true));
 displayBooks();
 
@@ -25,7 +22,12 @@ function getBookFieldsFromInput() {
     const bookAuthor = form.elements["book-author"].value;
     const bookPages = form.elements["book-pages"].value;
     const bookStatus = form.elements["book-status"].checked;
-    return new Book(bookTitle, bookAuthor, bookPages, bookStatus);
+    return {
+        title: bookTitle,
+        author: bookAuthor,
+        pages: bookPages,
+        read: bookStatus,
+    };
 }
 
 function setBookFieldsToInput(title, author, pages, status) {
@@ -46,8 +48,8 @@ function removeBookFromLibrary(book) {
 
 function editBookFromLibrary(book) {
     const dialog = document.querySelector("#add-book-dialog");
-    const index = myLibrary.indexOf(book);
-    setBookFieldsToInput(myLibrary[index].title, myLibrary[index].author, myLibrary[index].pages, myLibrary[index].status);
+    currentEditingId = book.id;
+    setBookFieldsToInput(book.title, book.author, book.pages, book.read);
     dialog.showModal();
 }
 
@@ -73,28 +75,38 @@ function displayBooks() {
     });
 }
 
-// Add book to myLibrary when button is clicked
+// Add book to myLibrary when form submit
 const dialog = document.querySelector("#add-book-dialog");
 const form = document.querySelector("#add-book-form");
 form.addEventListener("submit", (event) => {
     event.preventDefault();
 
-    const newBook = getBookFieldsFromInput();
-    addBookToLibrary(newBook);
+    // If editing a book, update the properties
+    if (currentEditingId) {
+        const currentBook = myLibrary.find((book) => {
+            return book.id === currentEditingId;
+        });
+        const updateBook = getBookFieldsFromInput();
+        currentBook.title = updateBook.title;
+        currentBook.author = updateBook.author;
+        currentBook.pages = updateBook.pages;
+        currentBook.read = updateBook.read;
+    } else {
+        const newBook = getBookFieldsFromInput();
+        addBookToLibrary(new Book(newBook.title, newBook.author, newBook.pages, newBook.read));
+    }
+
     displayBooks();
 
     form.reset();
     dialog.close();
 });
 
-// Remove book from myLibrary and toggle read status
 const bookshelf = document.querySelector(".bookshelf");
 bookshelf.addEventListener("click", (event) => {
     const targetBook = myLibrary.find((book) => book.id === event.target.closest(".book").dataset.id);
     if (event.target.classList.contains("book__button--remove")) {
         removeBookFromLibrary(targetBook);
-    } else if (event.target.classList.contains("book__button--read")) {
-        targetBook.toggleReadStatus();
     } else {
         editBookFromLibrary(targetBook);
     }
