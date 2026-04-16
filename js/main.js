@@ -49,10 +49,8 @@ function removeBookFromLibrary(book) {
 }
 
 function editBookFromLibrary(book) {
-    const dialog = document.querySelector("#add-book-dialog");
     currentEditingId = book.id;
     setBookFieldsToInput(book.title, book.author, book.pages, book.read);
-    dialog.showModal();
 }
 
 function displayBooks() {
@@ -106,6 +104,7 @@ bookshelf.addEventListener("click", (event) => {
     if (event.target.classList.contains("book__button--remove")) {
         removeBookFromLibrary(targetBook);
     } else {
+        dialog.showModal();
         editBookFromLibrary(targetBook);
     }
     displayBooks();
