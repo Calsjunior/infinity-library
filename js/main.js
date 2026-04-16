@@ -90,6 +90,7 @@ form.addEventListener("submit", (event) => {
         currentBook.author = updateBook.author;
         currentBook.pages = updateBook.pages;
         currentBook.read = updateBook.read;
+        currentEditingId = null;
     } else {
         const newBook = getBookFieldsFromInput();
         addBookToLibrary(new Book(newBook.title, newBook.author, newBook.pages, newBook.read));
