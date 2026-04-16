@@ -43,7 +43,9 @@ function addBookToLibrary(book) {
 
 function removeBookFromLibrary(book) {
     const index = myLibrary.indexOf(book);
-    myLibrary.splice(index, 1);
+    if (index > -1) {
+        myLibrary.splice(index, 1);
+    }
 }
 
 function editBookFromLibrary(book) {
