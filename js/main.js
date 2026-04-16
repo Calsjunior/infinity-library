@@ -88,10 +88,7 @@ form.addEventListener("submit", (event) => {
             return book.id === currentEditingId;
         });
         const updateBook = getBookFieldsFromInput();
-        currentBook.title = updateBook.title;
-        currentBook.author = updateBook.author;
-        currentBook.pages = updateBook.pages;
-        currentBook.read = updateBook.read;
+        Object.assign(currentBook, updateBook);
         currentEditingId = null;
     } else {
         const newBook = getBookFieldsFromInput();
@@ -99,7 +96,6 @@ form.addEventListener("submit", (event) => {
     }
 
     displayBooks();
-
     form.reset();
     dialog.close();
 });
