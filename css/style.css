@@ -17,10 +17,21 @@ body {
 .bookshelf {
     display: flex;
     gap: 0.5rem;
+    padding: 5rem;
 }
 
 .book {
+    width: 5rem;
+    height: clamp(200px, 25vh, 300px);
     cursor: pointer;
+    transition:
+        transform 0.8s,
+        box-shadow 0.8s;
+}
+
+.book:hover {
+    box-shadow: 3px 1px 3px rgba(0, 0, 0, 0.6);
+    transform: scale(1.2);
 }
 
 .spine {
@@ -29,14 +40,19 @@ body {
     gap: 1.5rem;
     align-items: center;
     justify-content: space-between;
-    width: fit-content;
-    padding: 2rem 0;
+    width: 100%;
+    height: 100%;
+    padding: 2rem 0.5rem;
     color: var(--color-gold);
     background-color: var(--color-spine);
 }
 
 .spine__title {
     writing-mode: vertical-lr;
+}
+
+.side {
+    width: 100%;
 }
 
 /* All of these content below are related to dialog */
