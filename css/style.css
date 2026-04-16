@@ -5,6 +5,7 @@
     --color-gold: #e5c07b;
     --color-spine: #1e0d0d;
     --color-ribbon: #8b1a1a;
+    --color-table: #4b2b1a;
 
     --font-display: "Cinzel", serif;
     --font-body: "IM Fell English", serif;
@@ -59,7 +60,7 @@ body {
 .cover {
     position: relative;
     padding: 0;
-    background-color: var(--color-brown);
+    background-color: var(--color-dark-brown);
     background-image: url(../assets/dark-leather.png);
     border: 0;
     border-radius: 2px 1.2rem 1.2rem 2px;
@@ -69,6 +70,11 @@ body {
         0px 2px 0 var(--color-dark-brown);
 
     transform: rotate(-1deg);
+}
+
+.cover::backdrop {
+    background-color: var(--color-table);
+    background-image: url(../assets/dark-wood.png);
 }
 
 .ribbon {
