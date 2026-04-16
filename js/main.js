@@ -111,8 +111,8 @@ bookshelf.addEventListener("click", (event) => {
     if (event.target.classList.contains("book__button--remove")) {
         removeBookFromLibrary(targetBook);
     } else {
-        dialog.showModal();
         editBookFromLibrary(targetBook);
+        dialog.showModal();
     }
     displayBooks();
 });
