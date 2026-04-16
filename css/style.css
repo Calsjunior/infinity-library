@@ -36,7 +36,7 @@ body {
 }
 
 /* All of these content below are related to dialog */
-.book {
+.cover {
     position: relative;
     padding: 0;
     background-color: var(--color-brown);
@@ -74,7 +74,7 @@ body {
     transform: scaleY(1.15);
 }
 
-.cover {
+.cover__form {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
