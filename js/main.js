@@ -67,7 +67,6 @@ function displayBooks() {
             </div>
             <div class="side side--top"></div>
             <div class="side side--cover"></div>
-            <button class="book__button book__button--read">${book.read ? "Read" : "Not Read"}</button>
             <button class="book__button book__button--remove">Remove Book</button>
             `;
 
