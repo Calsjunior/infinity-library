@@ -13,6 +13,13 @@ function Book(title, author, pages, read) {
     this.read = read;
 }
 
+Book.prototype.update = function (book) {
+    this.title = book.title;
+    this.author = book.author;
+    this.pages = book.pages;
+    this.read = book.read;
+};
+
 addBookToLibrary(new Book("Harry", "J.K.", 129, true));
 displayBooks();
 
@@ -85,8 +92,8 @@ form.addEventListener("submit", (event) => {
         const currentBook = myLibrary.find((book) => {
             return book.id === currentEditingId;
         });
-        const updateBook = getBookFieldsFromInput();
-        Object.assign(currentBook, updateBook);
+        const updatedBook = getBookFieldsFromInput();
+        currentBook.update(updatedBook);
         currentEditingId = null;
     } else {
         const newBook = getBookFieldsFromInput();
