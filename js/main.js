@@ -25,7 +25,7 @@ function getBookFieldsFromInput() {
     return {
         title: bookTitle,
         author: bookAuthor,
-        pages: bookPages,
+        pages: parseInt(bookPages, 10),
         read: bookStatus,
     };
 }
