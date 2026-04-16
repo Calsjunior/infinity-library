@@ -28,6 +28,13 @@ function getBookFromInput() {
     return new Book(bookTitle, bookAuthor, bookPages, bookStatus);
 }
 
+function setBookToInput(title, author, pages, status) {
+    const form = document.querySelector("#add-book-form");
+    form.elements["book-title"].value = title;
+    form.elements["book-author"].value = author;
+    form.elements["book-pages"].value = pages;
+    form.elements["book-status"].checked = status;
+}
 function addBookToLibrary(book) {
     myLibrary.push(book);
 }
@@ -35,6 +42,13 @@ function addBookToLibrary(book) {
 function removeBookFromLibrary(book) {
     const index = myLibrary.indexOf(book);
     myLibrary.splice(index, 1);
+}
+
+function editBookFromLibrary(book) {
+    const dialog = document.querySelector("#add-book-dialog");
+    const index = myLibrary.indexOf(book);
+    setBookToInput(myLibrary[index].title, myLibrary[index].author, myLibrary[index].pages, myLibrary[index].status);
+    dialog.showModal();
 }
 
 function displayBooks() {
