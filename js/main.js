@@ -19,7 +19,7 @@ Book.prototype.toggleReadStatus = function () {
 addBookToLibrary(new Book("Harry", "J.K.", 129, true));
 displayBooks();
 
-function getBookFromInput() {
+function getBookFieldsFromInput() {
     const form = document.querySelector("#add-book-form");
     const bookTitle = form.elements["book-title"].value;
     const bookAuthor = form.elements["book-author"].value;
@@ -28,7 +28,7 @@ function getBookFromInput() {
     return new Book(bookTitle, bookAuthor, bookPages, bookStatus);
 }
 
-function setBookToInput(title, author, pages, status) {
+function setBookFieldsToInput(title, author, pages, status) {
     const form = document.querySelector("#add-book-form");
     form.elements["book-title"].value = title;
     form.elements["book-author"].value = author;
@@ -47,7 +47,7 @@ function removeBookFromLibrary(book) {
 function editBookFromLibrary(book) {
     const dialog = document.querySelector("#add-book-dialog");
     const index = myLibrary.indexOf(book);
-    setBookToInput(myLibrary[index].title, myLibrary[index].author, myLibrary[index].pages, myLibrary[index].status);
+    setBookFieldsToInput(myLibrary[index].title, myLibrary[index].author, myLibrary[index].pages, myLibrary[index].status);
     dialog.showModal();
 }
 
@@ -79,7 +79,7 @@ const form = document.querySelector("#add-book-form");
 form.addEventListener("submit", (event) => {
     event.preventDefault();
 
-    const newBook = getBookFromInput();
+    const newBook = getBookFieldsFromInput();
     addBookToLibrary(newBook);
     displayBooks();
 
