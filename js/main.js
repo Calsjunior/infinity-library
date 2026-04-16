@@ -16,6 +16,9 @@ Book.prototype.toggleReadStatus = function () {
     this.read = !this.read;
 };
 
+addBookToLibrary(new Book("Harry", "J.K.", 129, true));
+displayBooks();
+
 function addBookToLibrary(book) {
     myLibrary.push(book);
 }
@@ -39,11 +42,10 @@ function displayBooks() {
     bookshelf.innerHTML = "";
     myLibrary.forEach((book) => {
         const card = document.createElement("article");
-        card.classList.add("book__spine");
+        card.classList.add("spine");
         card.innerHTML = `
-            <h2 class="book__title">${book.title}</h2>
-            <p class="book__author">Author: ${book.author}</p>
-            <p class="book__pages">Pages: ${book.pages}</p>
+            <h2 class="spine__title">${book.title}</h2>
+            <p class="spine__author">${book.author}</p>
             <button class="book__button book__button--read" data-id=${book.id}>Status: ${book.read ? "Read" : "Not Yet Read"}</button>
             <button class="book__button book__button--remove" data-id="${book.id}">Remove Book</button>
             `;
