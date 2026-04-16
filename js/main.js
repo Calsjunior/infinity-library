@@ -19,15 +19,6 @@ Book.prototype.toggleReadStatus = function () {
 addBookToLibrary(new Book("Harry", "J.K.", 129, true));
 displayBooks();
 
-function addBookToLibrary(book) {
-    myLibrary.push(book);
-}
-
-function removeBookFromLibrary(book) {
-    const index = myLibrary.indexOf(book);
-    myLibrary.splice(index, 1);
-}
-
 function getBookFromInput() {
     const form = document.querySelector("#add-book-form");
     const bookTitle = form.elements["book-title"].value;
@@ -37,17 +28,31 @@ function getBookFromInput() {
     return new Book(bookTitle, bookAuthor, bookPages, bookStatus);
 }
 
+function addBookToLibrary(book) {
+    myLibrary.push(book);
+}
+
+function removeBookFromLibrary(book) {
+    const index = myLibrary.indexOf(book);
+    myLibrary.splice(index, 1);
+}
+
 function displayBooks() {
     const bookshelf = document.querySelector(".bookshelf");
     bookshelf.innerHTML = "";
     myLibrary.forEach((book) => {
         const card = document.createElement("article");
-        card.classList.add("spine");
+        card.classList.add("book");
+        card.dataset.id = book.id;
         card.innerHTML = `
-            <h2 class="spine__title">${book.title}</h2>
-            <p class="spine__author">${book.author}</p>
-            <button class="book__button book__button--read" data-id=${book.id}>Status: ${book.read ? "Read" : "Not Yet Read"}</button>
-            <button class="book__button book__button--remove" data-id="${book.id}">Remove Book</button>
+            <div class="side spine">
+                <h2 class="spine__title">${book.title}</h2>
+                <p class="spine__author">${book.author}</p>
+            </div>
+            <div class="side side--top"></div>
+            <div class="side side--cover"></div>
+            <button class="book__button book__button--read">${book.read ? "Read" : "Not Read"}</button>
+            <button class="book__button book__button--remove">Remove Book</button>
             `;
 
         bookshelf.appendChild(card);
@@ -71,11 +76,13 @@ form.addEventListener("submit", (event) => {
 // Remove book from myLibrary and toggle read status
 const bookshelf = document.querySelector(".bookshelf");
 bookshelf.addEventListener("click", (event) => {
-    const targetBook = myLibrary.find((book) => book.id === event.target.dataset.id);
+    const targetBook = myLibrary.find((book) => book.id === event.target.closest(".book").dataset.id);
     if (event.target.classList.contains("book__button--remove")) {
         removeBookFromLibrary(targetBook);
     } else if (event.target.classList.contains("book__button--read")) {
         targetBook.toggleReadStatus();
+    } else {
+        editBookFromLibrary(targetBook);
     }
     displayBooks();
 });
