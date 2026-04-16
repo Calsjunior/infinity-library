@@ -83,7 +83,7 @@ body {
     left: 30px;
     width: 15px;
     height: 100px;
-    filter: drop-shadow(2px 2px 6px rgba(0, 0, 0, 0.6));
+    filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.6));
 }
 
 .ribbon__button {
@@ -91,6 +91,7 @@ body {
     height: 100%;
     cursor: pointer;
     background-color: var(--color-ribbon);
+    background-image: url(../assets/classy-fabric.png);
     border: 0;
     clip-path: polygon(95% 0%, 95% 85%, 50% 95%, 5% 85%, 5% 0%);
     transition: transform 0.1s ease-out;
