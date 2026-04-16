@@ -114,5 +114,4 @@ bookshelf.addEventListener("click", (event) => {
         editBookFromLibrary(targetBook);
         dialog.showModal();
     }
-    displayBooks();
 });
