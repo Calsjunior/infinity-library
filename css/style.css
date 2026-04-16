@@ -72,6 +72,20 @@ body {
     transform: rotate(-1deg);
 }
 
+.cover[open] {
+    animation: slideUp 1s;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+        transform: rotate(-1deg);
+    }
+}
+
 .cover::backdrop {
     background-color: var(--color-table);
     background-image: url(../assets/dark-wood.png);
