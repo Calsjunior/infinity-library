@@ -19,6 +19,10 @@ body {
     gap: 0.5rem;
 }
 
+.book {
+    cursor: pointer;
+}
+
 .spine {
     display: flex;
     flex-direction: column;
