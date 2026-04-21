@@ -31,7 +31,9 @@ body {
 }
 
 .book:hover {
-    box-shadow: 3px 1px 3px rgba(0, 0, 0, 0.6);
+    box-shadow:
+        3px 1px 3px rgba(0, 0, 0, 0.6),
+        -3px -1px 3px rgba(0, 0, 0, 0.6);
     transform: scale(1.2);
 }
 
@@ -45,7 +47,7 @@ body {
     height: 100%;
     padding: 2rem 0.5rem;
     color: var(--color-gold);
-    background-color: var(--color-spine);
+    background-color: var(--book-color, var(--color-spine));
     background-image: url(../assets/dark-leather.png);
 }
 

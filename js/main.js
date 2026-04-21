@@ -1,4 +1,5 @@
 const myLibrary = [];
+const spineColors = ["#1a2a4a", "#2a1a4a", "#1a3a2a", "#4a2a1a", "#1a3a3a", "#3a1a2a", "#2a3a1a", "#4a1a1a", "#1a1a3a"];
 let currentEditingId = null;
 
 function Book(title, author, pages, read) {
@@ -11,6 +12,7 @@ function Book(title, author, pages, read) {
     this.author = author;
     this.pages = pages;
     this.read = read;
+    this.color = spineColors[Math.floor(Math.random() * spineColors.length)];
 }
 
 Book.prototype.update = function (book) {
@@ -67,6 +69,7 @@ function displayBooks() {
         const card = document.createElement("article");
         card.classList.add("book");
         card.dataset.id = book.id;
+        card.style.setProperty("--book-color", book.color);
         card.innerHTML = `
             <div class="side spine">
                 <h2 class="spine__title">${book.title}</h2>
