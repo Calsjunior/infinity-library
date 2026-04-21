@@ -13,11 +13,12 @@
 
 body {
     font-family: var(--font-body);
-    background-color: #4e3d2e;
+    background-color: #322119;
 }
 
 .bookshelf {
     display: flex;
+    flex-wrap: wrap;
     gap: 0.5rem;
     padding: 5rem 5rem 0rem 5rem;
 }
