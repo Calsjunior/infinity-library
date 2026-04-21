@@ -22,8 +22,11 @@ Book.prototype.update = function (book) {
     this.read = book.read;
 };
 
-addBookToLibrary(new Book("Harry", "J.K.", 129, true));
+for (i = 0; i < 30; i++) {
+    addBookToLibrary(new Book("Harry", "J.K.", 129, true));
+}
 displayBooks();
+displayShelves();
 
 function getBookFieldsFromInput() {
     const form = document.querySelector("#add-book-form");
@@ -84,6 +87,31 @@ function displayBooks() {
     });
 }
 
+function displayShelves() {
+    const bookshelf = document.querySelector(".bookshelf");
+    const books = document.querySelectorAll(".book");
+    const rows = [];
+    let previousOffset = books[0].offsetTop; // Get the current offsetTop to check if a book has wrapped
+    books.forEach((book) => {
+        if (book.offsetTop !== previousOffset) {
+            previousOffset = book.offsetTop;
+            rows.push(book);
+        }
+    });
+
+    // Insert shelves only after a new book has wrapped
+    rows.forEach((book) => {
+        const shelf = document.createElement("div");
+        shelf.classList.add("shelf");
+        bookshelf.insertBefore(shelf, book);
+    });
+
+    // Append a last row since it doesn't get created dynamically
+    const lastShelf = document.createElement("div");
+    lastShelf.classList.add("shelf");
+    bookshelf.appendChild(lastShelf);
+}
+
 // Add book to myLibrary when form submit
 const dialog = document.querySelector("#add-book-dialog");
 const form = document.querySelector("#add-book-form");
@@ -109,6 +137,7 @@ form.addEventListener("submit", (event) => {
     }
 
     displayBooks();
+    displayShelves();
     dialog.close();
 });
 
