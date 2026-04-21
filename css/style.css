@@ -53,6 +53,11 @@ body {
     writing-mode: vertical-lr;
 }
 
+.spine__author {
+    padding: 2px 4px;
+    border-top: 1px solid var(--color-gold);
+}
+
 .side {
     width: 100%;
 }
