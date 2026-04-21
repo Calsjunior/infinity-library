@@ -46,6 +46,7 @@ body {
     padding: 2rem 0.5rem;
     color: var(--color-gold);
     background-color: var(--color-spine);
+    background-image: url(../assets/dark-leather.png);
 }
 
 .spine__title {
