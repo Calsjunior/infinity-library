@@ -49,6 +49,7 @@ body {
 }
 
 .spine__title {
+    font-size: inherit;
     writing-mode: vertical-lr;
 }
 
