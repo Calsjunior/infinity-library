@@ -74,7 +74,7 @@ function displayBooks() {
             </div>
             <div class="side side--top"></div>
             <div class="side side--cover"></div>
-            <button class="book__button book__button--remove">Remove Book</button>
+            <!-- <button class="book__button book__button--remove">Remove Book</button> -->
             `;
 
         bookshelf.appendChild(card);
@@ -84,6 +84,11 @@ function displayBooks() {
 // Add book to myLibrary when form submit
 const dialog = document.querySelector("#add-book-dialog");
 const form = document.querySelector("#add-book-form");
+const newBookButton = document.querySelector("#open-dialog");
+newBookButton.addEventListener("click", () => {
+    form.reset();
+});
+
 form.addEventListener("submit", (event) => {
     event.preventDefault();
 
@@ -101,7 +106,6 @@ form.addEventListener("submit", (event) => {
     }
 
     displayBooks();
-    form.reset();
     dialog.close();
 });
 
