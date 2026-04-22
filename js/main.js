@@ -216,8 +216,7 @@ UI.bookshelf.addEventListener("click", (event) => {
     }
 });
 
-for (i = 0; i < 60; i++) {
-    addBookToLibrary(new Book("Harry", "J.K.", 129, true));
-}
+addBookToLibrary(new Book("Harry Potter One", "J.K.", 223, true));
+addBookToLibrary(new Book("The Hobbit", "J.R.R", 310, false));
 displayBooks();
 displayShelves();
