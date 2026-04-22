@@ -57,9 +57,12 @@ body {
     bottom: 5vw;
     width: var(--book-width);
     height: calc(var(--book-width) + 2vw);
+    color: var(--color-gold);
     background-color: var(--color-brown);
     background-image: url(../assets/dark-leather.png);
     border: 0;
+    border-left: 0.5rem solid var(--color-spine);
+    border-radius: 2px 0.5rem 0.5rem 2px;
     box-shadow:
         1px 1px 0 rgba(255, 255, 255, 0.6), /* Book page */
         -3px -1px 3px rgba(0, 0, 0, 0.6),
@@ -151,7 +154,7 @@ body {
 }
 
 .ribbon--small {
-    left: 5px;
+    left: 2px;
     width: 6px;
     height: 30px;
 }
@@ -281,6 +284,7 @@ body {
     -moz-appearance: textfield;
 }
 
+.book__button,
 .cover__input,
 .cover__ornament,
 .cover__label {
