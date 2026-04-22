@@ -17,6 +17,21 @@ const spineColors = ["#1a2a4a", "#2a1a4a", "#1a3a2a", "#4a2a1a", "#1a3a3a", "#3a
 let currentEditingId = null;
 
 /**
+ * Cache DOM elements.
+ * @namespace
+ * @property {HTMLDivElement}    bookshelf  - The main container for book cards.
+ * @property {HTMLDialogElement} dialog     - The dialog modal for adding/editing books.
+ * @property {HTMLFormElement}   form       - The form inside dialog.
+ * @property {HTMLButtonElement} newBookBtn - The button to open the dialog.
+ */
+const UI = {
+    bookshelf: document.querySelector(".bookshelf"),
+    dialog: document.querySelector("#add-book-dialog"),
+    form: document.querySelector("#open-dialog"),
+    newBookBtn: document.querySelector("#add-book-form"),
+};
+
+/**
  * Creates a new book.
  * @constructor
  * @param  {string}  title  The title of the book.
@@ -50,7 +65,6 @@ Book.prototype.update = function (book) {
  * @returns {{title: string, author: string, pages: number, read: boolean}} An object containing the formatted data.
  */
 function getBookFieldsFromInput() {
-    const form = document.querySelector("#add-book-form");
     const bookTitle = form.elements["book-title"].value;
     const bookAuthor = form.elements["book-author"].value;
     const bookPages = form.elements["book-pages"].value;
@@ -72,7 +86,6 @@ function getBookFieldsFromInput() {
  * @returns {void}
  */
 function setBookFieldsToInput(title, author, pages, status) {
-    const form = document.querySelector("#add-book-form");
     form.elements["book-title"].value = title;
     form.elements["book-author"].value = author;
     form.elements["book-pages"].value = pages;
@@ -115,8 +128,7 @@ function editBookFromLibrary(book) {
  * @returns {void}
  */
 function displayBooks() {
-    const bookshelf = document.querySelector(".bookshelf");
-    bookshelf.innerHTML = "";
+    UI.bookshelf.innerHTML = "";
     myLibrary.forEach((book) => {
         const card = document.createElement("article");
         card.classList.add("book");
@@ -132,7 +144,7 @@ function displayBooks() {
             <!-- <button class="book__button book__button--remove">Remove Book</button> -->
             `;
 
-        bookshelf.appendChild(card);
+        UI.bookshelf.appendChild(card);
     });
 }
 
@@ -141,7 +153,6 @@ function displayBooks() {
  * @returns {void}
  */
 function displayShelves() {
-    const bookshelf = document.querySelector(".bookshelf");
     const books = document.querySelectorAll(".book");
     const rows = [];
     let previousOffset = books[0].offsetTop; // Get the current offsetTop to check if a book has wrapped
@@ -156,24 +167,21 @@ function displayShelves() {
     rows.forEach((book) => {
         const shelf = document.createElement("div");
         shelf.classList.add("shelf");
-        bookshelf.insertBefore(shelf, book);
+        UI.bookshelf.insertBefore(shelf, book);
     });
 
     // Append a last row since it doesn't get created dynamically
     const lastShelf = document.createElement("div");
     lastShelf.classList.add("shelf");
-    bookshelf.appendChild(lastShelf);
+    UI.bookshelf.appendChild(lastShelf);
 }
 
 // Add book to myLibrary when form submit
-const dialog = document.querySelector("#add-book-dialog");
-const form = document.querySelector("#add-book-form");
-const newBookButton = document.querySelector("#open-dialog");
-newBookButton.addEventListener("click", () => {
-    form.reset();
+UI.newBookBtn.addEventListener("click", () => {
+    UI.form.reset();
 });
 
-form.addEventListener("submit", (event) => {
+UI.form.addEventListener("submit", (event) => {
     event.preventDefault();
 
     // If editing a book, update the properties
@@ -191,17 +199,16 @@ form.addEventListener("submit", (event) => {
 
     displayBooks();
     displayShelves();
-    dialog.close();
+    UI.dialog.close();
 });
 
-const bookshelf = document.querySelector(".bookshelf");
-bookshelf.addEventListener("click", (event) => {
+UI.bookshelf.addEventListener("click", (event) => {
     const targetBook = myLibrary.find((book) => book.id === event.target.closest(".book").dataset.id);
     if (event.target.classList.contains("book__button--remove")) {
         removeBookFromLibrary(targetBook);
     } else {
         editBookFromLibrary(targetBook);
-        dialog.showModal();
+        UI.dialog.showModal();
     }
 });
 
