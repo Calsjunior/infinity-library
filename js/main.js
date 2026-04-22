@@ -177,11 +177,11 @@ function displayShelves() {
     UI.bookshelf.appendChild(lastShelf);
 }
 
-// Add book to myLibrary when form submit
 UI.newBookBtn.addEventListener("click", () => {
     UI.form.reset();
 });
 
+// Add book to myLibrary when form submit
 UI.form.addEventListener("submit", (event) => {
     event.preventDefault();
 
