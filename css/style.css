@@ -116,8 +116,11 @@ body:has(dialog[open]) {
 
 /* All of these content below are related to dialog */
 .cover {
-    position: relative;
+    position: fixed;
+    top: 50%;
+    left: 50%;
     padding: 0;
+    margin: 0;
     background-color: var(--color-dark-brown);
     background-image: url(../assets/dark-leather.png);
     border: 0;
@@ -126,8 +129,7 @@ body:has(dialog[open]) {
         3px 3px var(--color-dark-brown),
         10px 10px 10px rgba(0, 0, 0, 0.3),
         0px 2px 0 var(--color-dark-brown);
-
-    transform: rotate(-1deg);
+    transform: translate(-50%, -50%) rotate(-1deg);
 }
 
 .cover[open] {
@@ -136,11 +138,10 @@ body:has(dialog[open]) {
 
 @keyframes slideUp {
     from {
-        transform: translateY(100%);
+        transform: translate(-50%, 100vh) rotate(0deg);
     }
     to {
-        transform: translateY(0);
-        transform: rotate(-1deg);
+        transform: translate(-50%, -50%) rotate(-1deg);
     }
 }
 
