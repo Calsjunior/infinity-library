@@ -135,12 +135,10 @@ function displayBooks() {
         card.dataset.id = book.id;
         card.style.setProperty("--book-color", book.color);
         card.innerHTML = `
-            <div class="side spine">
+            <div class="spine">
                 <h2 class="spine__title">${book.title}</h2>
                 <p class="spine__author">${book.author}</p>
             </div>
-            <div class="side side--top"></div>
-            <div class="side side--cover"></div>
             <!-- <button class="book__button book__button--remove">Remove Book</button> -->
             `;
 
