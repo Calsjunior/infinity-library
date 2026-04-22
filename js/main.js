@@ -34,10 +34,10 @@ const UI = {
 /**
  * Creates a new book.
  * @constructor
- * @param  {string}  title  The title of the book.
- * @param  {string}  author The author of the book.
- * @param  {number}  pages  The total number of pages.
- * @param  {boolean} read   The status of whether the book has been read or not.
+ * @param  {string}  title  - The title of the book.
+ * @param  {string}  author - The author of the book.
+ * @param  {number}  pages  - The total number of pages.
+ * @param  {boolean} read   - The status of whether the book has been read or not.
  * @throws {Error}   Throws an error if not called with the new operator.
  */
 function Book(title, author, pages, read) {
@@ -79,10 +79,10 @@ function getBookFieldsFromInput() {
 
 /**
  * Populates the input fields of the book form.
- * @param   {string}  title The title of the book.
- * @param   {string}  author The author of the book.
- * @param   {number}  pages The total number of pages.
- * @param   {boolean} read The status of whether the book has been read or not.
+ * @param   {string}  title  - The title of the book.
+ * @param   {string}  author - The author of the book.
+ * @param   {number}  pages  - The total number of pages.
+ * @param   {boolean} read   - The status of whether the book has been read or not.
  * @returns {void}
  */
 function setBookFieldsToInput(title, author, pages, status) {
@@ -94,7 +94,7 @@ function setBookFieldsToInput(title, author, pages, status) {
 
 /**
  * Adds a new book object to myLibrary array.
- * @param   {Book[]} book The book object to add.
+ * @param   {Book[]} book - The book object to add.
  * @returns {void}
  */
 function addBookToLibrary(book) {
@@ -103,7 +103,7 @@ function addBookToLibrary(book) {
 
 /**
  * Remove a book object from myLibrary array.
- * @param   {Book[]} book The book object to remove.
+ * @param   {Book[]} book - The book object to remove.
  * @returns {void}
  */
 function removeBookFromLibrary(book) {
@@ -115,7 +115,7 @@ function removeBookFromLibrary(book) {
 
 /**
  * Prepares the program for editing a specific book.
- * @param   {Book[]} book The book object to edit.
+ * @param   {Book[]} book - The book object to edit.
  * @returns {void}
  */
 function editBookFromLibrary(book) {
