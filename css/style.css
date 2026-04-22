@@ -161,8 +161,8 @@ body:has(dialog[open]) {
 
 .ribbon--small {
     left: 2px;
-    width: 6px;
-    height: 30px;
+    width: min(1vw, 7px);
+    height: 3vw;
 }
 
 .ribbon__button {
