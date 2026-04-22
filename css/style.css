@@ -259,6 +259,9 @@ body:has(dialog[open]) {
 }
 
 /* Custom wax seal checkbox */
+/* Credits to this post for the seal stamp
+ * https://codepen.io/drewstaylor/pen/oNXjmgb
+ */
 .seal {
     position: relative;
     width: 5.5rem;
