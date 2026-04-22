@@ -16,6 +16,11 @@ body {
     background-color: #322119;
 }
 
+/* If the body has a dialog that is open, lock the scroll */
+body:has(dialog[open]) {
+    overflow: hidden;
+}
+
 .bookshelf {
     display: flex;
     flex-wrap: wrap;
