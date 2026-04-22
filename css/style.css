@@ -49,6 +49,30 @@ body {
     transform: scale(1.2);
 }
 
+.book__button {
+    --book-width: max(5rem, 7vw);
+
+    position: fixed;
+    right: 5vw;
+    bottom: 5vw;
+    width: var(--book-width);
+    height: calc(var(--book-width) + 2vw);
+    background-color: var(--color-brown);
+    background-image: url(../assets/dark-leather.png);
+    border: 0;
+    box-shadow:
+        1px 1px 0 rgba(255, 255, 255, 0.6), /* Book page */
+        -3px -1px 3px rgba(0, 0, 0, 0.6),
+        5px 1px 3px rgba(0, 0, 0, 0.6),
+        4px 3px 0 var(--color-dark-brown); /* Book back cover */
+    transform: rotate(10deg);
+    transition: transform 0.5s;
+}
+
+.book__button:hover {
+    transform: scale(1.2);
+}
+
 .spine {
     display: flex;
     flex-direction: column;
@@ -80,10 +104,6 @@ body {
 
 .spine__author {
     padding: 2px 4px;
-}
-
-.side {
-    width: 100%;
 }
 
 /* All of these content below are related to dialog */
