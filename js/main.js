@@ -137,6 +137,7 @@ function displayBooks() {
         card.innerHTML = `
             <div class="spine">
                 <h2 class="spine__title">${book.title}</h2>
+                <hr class="spine__line">
                 <p class="spine__author">${book.author}</p>
             </div>
             <!-- <button class="book__button book__button--remove">Remove Book</button> -->
