@@ -27,8 +27,8 @@ let currentEditingId = null;
 const UI = {
     bookshelf: document.querySelector(".bookshelf"),
     dialog: document.querySelector("#add-book-dialog"),
-    form: document.querySelector("#open-dialog"),
-    newBookBtn: document.querySelector("#add-book-form"),
+    form: document.querySelector("#add-book-form"),
+    newBookBtn: document.querySelector("#open-dialog"),
 };
 
 /**
@@ -65,10 +65,10 @@ Book.prototype.update = function (book) {
  * @returns {{title: string, author: string, pages: number, read: boolean}} An object containing the formatted data.
  */
 function getBookFieldsFromInput() {
-    const bookTitle = form.elements["book-title"].value;
-    const bookAuthor = form.elements["book-author"].value;
-    const bookPages = form.elements["book-pages"].value;
-    const bookStatus = form.elements["book-status"].checked;
+    const bookTitle = UI.form.elements["book-title"].value;
+    const bookAuthor = UI.form.elements["book-author"].value;
+    const bookPages = UI.form.elements["book-pages"].value;
+    const bookStatus = UI.form.elements["book-status"].checked;
     return {
         title: bookTitle,
         author: bookAuthor,
@@ -86,15 +86,15 @@ function getBookFieldsFromInput() {
  * @returns {void}
  */
 function setBookFieldsToInput(title, author, pages, status) {
-    form.elements["book-title"].value = title;
-    form.elements["book-author"].value = author;
-    form.elements["book-pages"].value = pages;
-    form.elements["book-status"].checked = status;
+    UI.form.elements["book-title"].value = title;
+    UI.form.elements["book-author"].value = author;
+    UI.form.elements["book-pages"].value = pages;
+    UI.form.elements["book-status"].checked = status;
 }
 
 /**
  * Adds a new book object to myLibrary array.
- * @param   {Book[]} book - The book object to add.
+ * @param   {Book} book - The book object to add.
  * @returns {void}
  */
 function addBookToLibrary(book) {
@@ -154,6 +154,8 @@ function displayBooks() {
  */
 function displayShelves() {
     const books = document.querySelectorAll(".book");
+    if (books.length === 0) return;
+
     const rows = [];
     let previousOffset = books[0].offsetTop; // Get the current offsetTop to check if a book has wrapped
     books.forEach((book) => {
@@ -203,7 +205,10 @@ UI.form.addEventListener("submit", (event) => {
 });
 
 UI.bookshelf.addEventListener("click", (event) => {
-    const targetBook = myLibrary.find((book) => book.id === event.target.closest(".book").dataset.id);
+    const bookCard = event.target.closest(".book");
+    if (!bookCard) return;
+
+    const targetBook = myLibrary.find((book) => book.id === bookCard.dataset.id);
     if (event.target.classList.contains("book__button--remove")) {
         removeBookFromLibrary(targetBook);
     } else {
