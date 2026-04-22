@@ -150,6 +150,12 @@ body {
     filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.6));
 }
 
+.ribbon--small {
+    left: 5px;
+    width: 6px;
+    height: 30px;
+}
+
 .ribbon__button {
     width: 100%;
     height: 100%;
