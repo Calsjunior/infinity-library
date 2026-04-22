@@ -4,6 +4,10 @@ A virtual library application where users can curate their book
 collection, featuring a medievalesque aesthetic with leathered books,
 embedded with gold typography.
 
+<img src="./assets/showcase-bookshelf.png">
+
+<img src="./assets/showcase-dialog.png">
+
 <!-- TOC -->
 
 ## Table of Contents
