@@ -1,7 +1,30 @@
+/**
+ * @file Manages the UI interactions for the Library
+ * @author Calsjunior
+ */
+
+/**
+ * Global library storage
+ * @type {Book[]}
+ */
 const myLibrary = [];
 const spineColors = ["#1a2a4a", "#2a1a4a", "#1a3a2a", "#4a2a1a", "#1a3a3a", "#3a1a2a", "#2a3a1a", "#4a1a1a", "#1a1a3a"];
+
+/**
+ * The unique ID of the book that is currently being edited. Null if adding a new book.
+ * @type {string}
+ */
 let currentEditingId = null;
 
+/**
+ * Creates a new book.
+ * @constructor
+ * @param  {string}  title  The title of the book.
+ * @param  {string}  author The author of the book.
+ * @param  {number}  pages  The total number of pages.
+ * @param  {boolean} read   The status of whether the book has been read or not.
+ * @throws {Error}   Throws an error if not called with the new operator.
+ */
 function Book(title, author, pages, read) {
     if (!new.target) {
         throw Error("You must use the new operator to call the constructor");
@@ -22,12 +45,10 @@ Book.prototype.update = function (book) {
     this.read = book.read;
 };
 
-for (i = 0; i < 30; i++) {
-    addBookToLibrary(new Book("Harry", "J.K.", 129, true));
-}
-displayBooks();
-displayShelves();
-
+/**
+ * Retrieves the current values from the book form that is clicked on.
+ * @returns {{title: string, author: string, pages: number, read: boolean}} An object containing the formatted data.
+ */
 function getBookFieldsFromInput() {
     const form = document.querySelector("#add-book-form");
     const bookTitle = form.elements["book-title"].value;
@@ -42,6 +63,14 @@ function getBookFieldsFromInput() {
     };
 }
 
+/**
+ * Populates the input fields of the book form.
+ * @param   {string}  title The title of the book.
+ * @param   {string}  author The author of the book.
+ * @param   {number}  pages The total number of pages.
+ * @param   {boolean} read The status of whether the book has been read or not.
+ * @returns {void}
+ */
 function setBookFieldsToInput(title, author, pages, status) {
     const form = document.querySelector("#add-book-form");
     form.elements["book-title"].value = title;
@@ -49,10 +78,21 @@ function setBookFieldsToInput(title, author, pages, status) {
     form.elements["book-pages"].value = pages;
     form.elements["book-status"].checked = status;
 }
+
+/**
+ * Adds a new book object to myLibrary array.
+ * @param   {Book[]} book The book object to add.
+ * @returns {void}
+ */
 function addBookToLibrary(book) {
     myLibrary.push(book);
 }
 
+/**
+ * Remove a book object from myLibrary array.
+ * @param   {Book[]} book The book object to remove.
+ * @returns {void}
+ */
 function removeBookFromLibrary(book) {
     const index = myLibrary.indexOf(book);
     if (index > -1) {
@@ -60,11 +100,20 @@ function removeBookFromLibrary(book) {
     }
 }
 
+/**
+ * Prepares the program for editing a specific book.
+ * @param   {Book[]} book The book object to edit.
+ * @returns {void}
+ */
 function editBookFromLibrary(book) {
     currentEditingId = book.id;
     setBookFieldsToInput(book.title, book.author, book.pages, book.read);
 }
 
+/**
+ * Clear the bookshelf UI and re-render all books in myLibrary array.
+ * @returns {void}
+ */
 function displayBooks() {
     const bookshelf = document.querySelector(".bookshelf");
     bookshelf.innerHTML = "";
@@ -87,6 +136,10 @@ function displayBooks() {
     });
 }
 
+/**
+ * Calculates rows of books and insert shelf.
+ * @returns {void}
+ */
 function displayShelves() {
     const bookshelf = document.querySelector(".bookshelf");
     const books = document.querySelectorAll(".book");
@@ -151,3 +204,9 @@ bookshelf.addEventListener("click", (event) => {
         dialog.showModal();
     }
 });
+
+for (i = 0; i < 60; i++) {
+    addBookToLibrary(new Book("Harry", "J.K.", 129, true));
+}
+displayBooks();
+displayShelves();
