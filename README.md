@@ -37,6 +37,9 @@ embedded with gold typography.
 - **Responsive Animations**: When opening dialog, book slides into view
   like you are putting down a book on a table; and on shelves, they mimic
   pulling out the books.
+- **Responsive Bookshelf**: When resizing your browser window, your
+  collection of books will adjust to new rows automatically, with a shelf
+  below them too of course.
 
 ## Installation
 
