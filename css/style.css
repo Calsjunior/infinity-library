@@ -94,6 +94,9 @@ body:has(dialog[open]) {
     color: var(--color-gold);
     background-color: var(--book-color, var(--color-spine));
     background-image: url(../assets/dark-leather.png);
+    box-shadow:
+        inset -2px 0 4px rgba(0, 0, 0, 0.4),
+        inset 2px 0 4px rgba(255, 255, 255, 0.05);
 }
 
 .spine__title {
