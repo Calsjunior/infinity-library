@@ -214,7 +214,7 @@ UI.form.addEventListener("submit", (event) => {
 });
 
 /**
- * When clicking on a book shelves, it opens dialog for editing.
+ * When clicking on a book, it opens dialog for editing.
  * I have yet to implement a way to remove books after insertion.
  */
 UI.bookshelf.addEventListener("click", (event) => {
