@@ -24,13 +24,13 @@ body:has(dialog[open]) {
 .bookshelf {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
     padding: 5rem 5rem 0rem 5rem;
 }
 
 .shelf {
     width: 100%;
     height: 2rem;
+    margin-bottom: 2rem;
     background-color: var(--color-table);
     background-image: url(../assets/dark-wood.png);
     box-shadow:
@@ -41,6 +41,7 @@ body:has(dialog[open]) {
 .book {
     width: 5rem;
     height: clamp(200px, 25vh, 300px);
+    margin: 0 0.4rem;
     cursor: pointer;
     transition:
         transform 0.8s,
