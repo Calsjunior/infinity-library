@@ -92,20 +92,10 @@ function setBookFieldsToInput(title, author, pages, status) {
     UI.form.elements["book-status"].checked = status;
 }
 
-/**
- * Adds a new book object to myLibrary array.
- * @param   {Book} book - The book object to add.
- * @returns {void}
- */
 function addBookToLibrary(book) {
     myLibrary.push(book);
 }
 
-/**
- * Remove a book object from myLibrary array.
- * @param   {Book[]} book - The book object to remove.
- * @returns {void}
- */
 function removeBookFromLibrary(book) {
     const index = myLibrary.indexOf(book);
     if (index > -1) {
@@ -115,7 +105,7 @@ function removeBookFromLibrary(book) {
 
 /**
  * Prepares the program for editing a specific book.
- * @param   {Book[]} book - The book object to edit.
+ * @param   {Book} book - The book object to edit.
  * @returns {void}
  */
 function editBookFromLibrary(book) {
