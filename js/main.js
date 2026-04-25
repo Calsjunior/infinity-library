@@ -174,9 +174,8 @@ function displayShelves() {
     UI.bookshelf.appendChild(lastShelf);
 }
 
-/**
- * Reset form on new book button so no fields are filled from previous attempts.
- */
+// Reset form on new book button so no fields are filled from previous
+// attempts.
 UI.newBookBtn.addEventListener("click", () => {
     currentEditingId = null;
     UI.form.reset();
@@ -204,10 +203,8 @@ UI.form.addEventListener("submit", (event) => {
     UI.dialog.close();
 });
 
-/**
- * When clicking on a book, it opens dialog for editing.
- * I have yet to implement a way to remove books after insertion.
- */
+// When clicking on a book, it opens dialog for editing.
+// I have yet to implement a way to remove books after insertion.
 UI.bookshelf.addEventListener("click", (event) => {
     const bookCard = event.target.closest(".book");
     if (!bookCard) return;
@@ -226,10 +223,8 @@ addBookToLibrary(new Book("The Hobbit", "J.R.R", 310, false));
 displayBooks();
 displayShelves();
 
-/**
- * Update the displayShelves on window resize so shelves get updated to the
- * correct row.
- */
+// Update the displayShelves on window resize so shelves get updated to the
+// correct row.
 window.addEventListener("resize", () => {
     displayShelves();
 });
