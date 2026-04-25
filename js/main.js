@@ -178,6 +178,7 @@ function displayShelves() {
  * Reset form on new book button so no fields are filled from previous attempts.
  */
 UI.newBookBtn.addEventListener("click", () => {
+    currentEditingId = null;
     UI.form.reset();
 });
 
